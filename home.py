@@ -15,10 +15,13 @@ class Home:
        
         #tab_Controllers = Controller(app)
         self.tab_controls = ttk.Notebook(app)
-        self.tab_controls.pack()
+        self.tab_controls.pack(pady=21)
         
-        self.frame_main = Frame(self.tab_controls, width=1900,  height=700, bg=bg_main)
+        var = "teste"
+        self.frame_main = Frame(self.tab_controls, width=1900,  height=700, bg=bg_main, bd=0)
         self.frame_cadastros = Frame(self.tab_controls, width=1900, height=700, bg=bg_main)
+        self.frame_userInfo = Label(self.app, text=var, bg=bg_main, fg="#fff")
+        self.frame_userInfo.place(relx=0, rely=0.0001, relheight=0.03)
         
         
         self.frame_main.pack(fill='both', expand=0)
