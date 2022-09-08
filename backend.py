@@ -1,31 +1,25 @@
-#conectando ao banco
-import sqlite3
-from sqlite3 import Error
+import mysql.connector
+from main import *
 
+global resultUser
 
+connect = mysql.connector.connect(
+    host='containers-us-west-16.railway.app',
+    port=5569,
+    user='root',
+    password='4CJjy8kG2MJ0VdMJoq5x',
+    database='railway'
+)
 
-#### CRIANDO CONEXÃO COM O BANCO ####
-db = 'db.db'
-conn = sqlite3.connect(db)
+if connect.is_connected():
+    db_info = connect.get_server_info()
+    print("database connect success")
 
-
-
-#### CRIANDO TABELA NO BANCO ####
-sql = """CREATE TABLE IF NOT EXISTS tb_usuarios(ID INTEGER PRIMARY KEY AUTOINCREMENT, usuario VARCHAR(80), senha VARCHAR(20))"""
-
-with conn:
-        cur = conn.cursor()
-        cur.execute(sql)
-
-
-con = sqlite3.connect(db)
-
-
-def create_inf(i):
-    with con:
-        cur = con.cursor()
-        query = "INSERT INTO tb_usuarios (usuario, senha) VALUES(?, ?)"
-        cur.execute(query, i)
-
-
-
+def doLogin(user, password):
+    sqlUsers = "SELECT * FROM tb_users WHERE login_user='{}' and password='{}'".format(user, password)
+    cursor = connect.cursor()
+    cursor.execute(sqlUsers)
+    users = cursor.fetchone()
+    return users
+    
+        

@@ -2,12 +2,17 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from register import *
-
+from main import *
+from backend import *
+from logs import *
 
 bg_main = '#0d151a'
 
 class Home:
     def __init__(self, app):
+        
+        self.userLog = inforUserLog()
+
         self.app = app
         self.app.state("zoomed")
         self.app.title("Sistema OxR")
@@ -17,11 +22,14 @@ class Home:
         self.tab_controls = ttk.Notebook(app)
         self.tab_controls.pack(pady=21)
         
-        var = "teste"
+        userLogs = self.userLog[1]
+
+        #print(self.userLog[1])
+
         self.frame_main = Frame(self.tab_controls, width=1900,  height=700, bg=bg_main, bd=0)
         self.frame_cadastros = Frame(self.tab_controls, width=1900, height=700, bg=bg_main)
 
-        self.frame_userInfo = Label(self.app, text=var, bg=bg_main, fg="#fff")
+        self.frame_userInfo = Label(self.app, text="Usuário: "+userLogs, bg=bg_main, fg="#fff")
         self.frame_userInfo.place(relx=0, rely=0.0001, relheight=0.03)
         
 

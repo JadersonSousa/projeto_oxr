@@ -1,9 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
 from home import *
+from backend import *
+from logs import *
+from datetime import *
+
 from PIL import Image, ImageTk
-
-
 
 class Application:
 
@@ -18,7 +20,7 @@ class Application:
         frame_login = Frame(app, bg="#333")
     
         #widgets
-        
+
         my_label = Label(frame_login,image=my_img, bg="#333")
         lb_login = Label(frame_login, text="Sistema OxR", fg="#0373fc", bg="#333", font=('Segoe UI Light', 22)) 
         e_user = Entry(frame_login, font=("Arial", 13), width=25)
@@ -42,29 +44,40 @@ class Application:
 
         global user
         global password
-
+        global userDb
         user = e_user
         password = e_password
 
     def login_user(self):
+      
+         try:
+         
+          userDb = doLogin(user.get(), password.get())
+          dataHora = datetime.now()
+          
+          i = [userDb[0], userDb[1], userDb[3], dataHora]
 
-         if len(user.get()) == 0 or len(password.get()) == 0:
+          insertLog(i)
+          #print(i)
+
+          if len(user.get()) == 0 or len(password.get()) == 0:
             messagebox.showerror('Erro Verifique', 'Preencha os campos!')       
-            if user.get() != 'admin' or password.get() != 'admin':
-                messagebox.showwarning('Atenção', 'Credenciais invalidas')
+        
+          if user.get() == userDb[3] and password.get() == userDb[4]:
+                
+              
+                app.destroy()
 
-         if user.get() == 'admin' and password.get() == 'admin':
+                newroot = Tk()
+                application = Home(newroot)
+                newroot.mainloop()
+         except:
+            messagebox.showerror('Erro Verifique', 'Credenciais invalidas')
             
-             app.destroy()
-
-             newroot = Tk()
-             application = Home(newroot)
-             newroot.mainloop()
-
-
 if __name__ == '__main__':
     app = Tk()
     my_img = ImageTk.PhotoImage(Image.open("img\OxR-1.png"), size="50x50")
+
     app.state("zoomed")
     application = Application(app)
   
