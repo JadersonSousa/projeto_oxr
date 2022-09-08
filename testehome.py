@@ -2,13 +2,14 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from turtle import title
+from home import Home
 from testeregister import *
 
 
 bg_main = '#0d151a'
 
 
-class Home:
+class Homex:
     def __init__(self, app):
         self.app = app
         self.app.state("zoomed")
@@ -197,5 +198,5 @@ if __name__ == '__main__':
     
     app = Tk()
     
-    application = Home(app)
+    application = Homex(app)
     app.mainloop()

@@ -1,7 +1,7 @@
 import mysql.connector
 from main import *
 
-global resultUser
+
 
 connect = mysql.connector.connect(
     host='containers-us-west-16.railway.app',
