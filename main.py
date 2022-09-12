@@ -17,7 +17,7 @@ class Application:
         app.configure(bg="#D0E6F1")
 
         ##### SCREEN LOGIN #####
-        self.logo = PhotoImage(file='C:\\Users\positivo\Desktop\projeto_oxr\img\logo_naz.png')
+        self.logo = PhotoImage(file='img\logo_naz.png')
         self.lb_logo = Label(app, image=self.logo, height=650, width=500)
         self.lb_logo.place(x=50, y=2)
 
@@ -36,7 +36,7 @@ class Application:
         self.heading = Label(self.frame_login, text='Entrar no sistema', foreground="#0a66c2",  bg='#f7f9fc', font=('Segoe UI Light', 23, 'bold'))
         self.heading.place(x=100, y=76)
 
-        self.logoOxr = PhotoImage(file='C:\\Users\positivo\Desktop\projeto_oxr\img\logo_oxr.png')
+        self.logoOxr = PhotoImage(file='img\logo_oxr.png')
         self.lb_logoOxr = Label(self.frame_login, image=self.logoOxr, height=65, width=150, bg="#f7f9fc")
         self.lb_logoOxr.place(x=150, y=2)
 
