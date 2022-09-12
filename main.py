@@ -14,39 +14,56 @@ class Application:
         app = app
         ### FRAME LOGIN ###
         app.title("Login - OxR")
-        app.configure(bg="#333")
+        app.configure(bg="#D0E6F1")
 
-        #frameLogin
-        frame_login = Frame(app, bg="#333")
-    
-        #widgets
+        ##### SCREEN LOGIN #####
+        self.logo = PhotoImage(file='C:\\Users\positivo\Desktop\projeto_oxr\img\logo_naz.png')
+        self.lb_logo = Label(app, image=self.logo, height=650, width=500)
+        self.lb_logo.place(x=50, y=2)
 
-        my_label = Label(frame_login,image=my_img, bg="#333")
-        lb_login = Label(frame_login, text="Sistema OxR", fg="#0373fc", bg="#333", font=('Segoe UI Light', 22)) 
-        e_user = Entry(frame_login, font=("Arial", 13), width=25)
-        lb_user = Label(frame_login, text="Usuário: ", fg="#fff", bg="#333", font=('Arial', 10, 'bold')) 
-        e_password = Entry(frame_login, font=("Arial", 13), show="*", width=25)
-        lb_password = Label(frame_login, text="Senha: ", fg="#fff", bg="#333", font=('Arial', 10, 'bold'))
-        btn_login = Button(frame_login, text="Entrar", bg="#0373fc", fg="#fff", font=('Arial', 10, 'bold'), bd=0, width=22, command=self.login_user)
+        
+        self.frame_down = Frame(app, height=50, width=900, bg="#0a66c2")
+        self.frame_down.place(relx=0, rely=0, y=670)
+
+
+        self.copy = Label(self.frame_down, text="Development by: Jaderson Sousa & João Paulo - 2022", bg="#0a66c2", foreground="#fff")
+        self.copy.place(relx=0, rely=0)
         
 
-        #configs inputs
-        my_label.grid(row=0, column=0, columnspan=2, pady=10)
-        lb_login.grid(row=1, column=0, columnspan=2, sticky="news", pady=10)
-        lb_user.grid(row=2, column=0)
-        e_user.grid(row=2, column=1, pady=14)
-        lb_password.grid(row=3, column=0)
-        e_password.grid(row=3, column=1)
-        btn_login.grid(row=4, column=0,  padx=(50,0), pady=(20, 0), columnspan=6)
-     
-        frame_login.pack()
+        #FRAME DO FORMULARIO DE LOGIN
+        self.frame_login = Frame(app, width=800, height=900, bg="#f7f9fc")
+
+        self.heading = Label(self.frame_login, text='Entrar no sistema', foreground="#0a66c2",  bg='#f7f9fc', font=('Segoe UI Light', 23, 'bold'))
+        self.heading.place(x=100, y=76)
+
+        self.logoOxr = PhotoImage(file='C:\\Users\positivo\Desktop\projeto_oxr\img\logo_oxr.png')
+        self.lb_logoOxr = Label(self.frame_login, image=self.logoOxr, height=65, width=150, bg="#f7f9fc")
+        self.lb_logoOxr.place(x=150, y=2)
+
+        #####################--------------------entry do usuário--------------------#####################
+        self.lb_usuario = Label(self.frame_login, text="Usuário", width=6, bg="#0a66c2", foreground="#fff", font=('Arial Narrow', 10, 'bold')).place(x=10, y=169)     
+        self.e_usuario = Entry(self.frame_login, width=36, fg='black', border=0, bg='#f7f9fc', font=('Microsoft YeHei UI Light', 11))
+        self.e_usuario.place(x=59, y=169)
+        self.border_usuario = Frame(self.frame_login, width=295, height=1, bg='#0a66c2').place(x=50, y=190)
+
+        #####################--------------------entry da senha--------------------#####################
+        self.lb_senha = Label(self.frame_login, text="Senha", width=6, bg="#0a66c2", foreground="#fff", font=('Arial Narrow', 10, 'bold')).place(x=10, y=249)  
+        self.e_senha = Entry(self.frame_login, width=36, fg='black', border=0, bg='#f7f9fc', font=('Microsoft YeHei UI Light', 11), show="*")
+        self.e_senha.place(x=59, y=250)
+        self.border_senha = Frame(self.frame_login, width=295, height=1, bg='#0a66c2').place(x=50, y=270)
+
+        #####################--------------------Botão de entrar--------------------#####################
+        self.btn_login = Button(self.frame_login, width=42, pady=7, text="Entrar", bg='#0a66c2', fg='#f7f9fc', border=0, cursor='hand2', command=self.login_user).place(x=50, y=290)
+
+
+        self.frame_login.place(x=900)
 
 
         global user
         global password
         global userDb
-        user = e_user
-        password = e_password
+        user = self.e_usuario
+        password = self.e_senha
 
     def login_user(self):
       
@@ -76,7 +93,6 @@ class Application:
             
 if __name__ == '__main__':
     app = Tk()
-    my_img = ImageTk.PhotoImage(Image.open("img\OxR-1.png"), size="50x50")
 
     app.state("zoomed")
     application = Application(app)
