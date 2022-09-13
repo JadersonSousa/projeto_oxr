@@ -2,9 +2,16 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from register import *
+<<<<<<< HEAD
+=======
+from formCadUser import *
+from main import *
+from logs import *
+>>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
 
 
-bg_main = '#0d151a'
+bg_main = '#D0E6F1'
+color_text='#111'
 
 class Home:
     def __init__(self, app):
@@ -14,6 +21,38 @@ class Home:
         self.app.state("zoomed")
         self.app.title("Sistema OxR")
         self.app.configure(bg=bg_main)
+<<<<<<< HEAD
+=======
+
+        usuarioLog = inforUserLog()[2]
+        
+        barraDeMenus=Menu(app)
+        
+        menuOxR=Menu(barraDeMenus,tearoff=0)
+        menuOxR.add_command(label="Análise OxR",command=self.analiseOxR)
+        barraDeMenus.add_cascade(label="Orçado x Realizado",menu=menuOxR)
+
+        menuCadastros=Menu(barraDeMenus,tearoff=0)
+        menuCadastros.add_command(label="Usuário",command=self.cadUser)
+        menuCadastros.add_command(label="Empresa",command=self.cadEmp)
+        menuCadastros.add_command(label="Filial",command=self.cadFil)
+        menuCadastros.add_command(label="Regional",command=self.cadReg)
+        menuCadastros.add_command(label="Centro de Custos",command=self.cadCdc)
+        menuCadastros.add_command(label="Plano de Contas",command=self.cadCC)
+        barraDeMenus.add_cascade(label="Cadastros",menu=menuCadastros)
+        
+        menuRelatorio=Menu(barraDeMenus,tearoff=0)
+        #menuRelatorio.add_command(label="Análise",command=semComando)
+        barraDeMenus.add_cascade(label="Relatório",menu=menuRelatorio)
+
+        menuSuporte=Menu(barraDeMenus,tearoff=0)
+        #menuSuporte.add_command(label="Análise",command=semComando)
+        barraDeMenus.add_cascade(label="Suporte",menu=menuSuporte)                
+
+        app.config(menu=barraDeMenus)
+
+
+>>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
        
         #tab_Controllers = Controller(app)
         self.tab_controls = ttk.Notebook(app)
@@ -72,38 +111,38 @@ class Home:
 
         # Label dos campos #
 
-        self.lb_Analise = Label(self.frame_main, text="Análise", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Analise = Label(self.frame_main, text="Análise", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Analise.place(relx=0.01, rely=0.08, relheight=0.02)
 
-        self.lb_Lancamento = Label(self.frame_main, text="Lançamentos", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Lancamento = Label(self.frame_main, text="Lançamentos", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Lancamento.place(relx=0.01, rely=0.68, relheight=0.02)
 
-        self.lb_Cometario = Label(self.frame_main, text="Comentários", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Cometario = Label(self.frame_main, text="Comentários", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Cometario.place(relx=0.53, rely=0.68, relheight=0.02)
 
         # Campo superior = Label e filtros #
 
-        self.lb_Ano = Label(self.frame_main, text="Ano", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Ano = Label(self.frame_main, text="Ano", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Ano.place(relx=0.01, rely=0.01)
         self.ano_entry = Entry(self.frame_main)
         self.ano_entry.place(relx=0.01, rely=0.04, relwidth=0.05)
 
-        self.lb_Mes = Label(self.frame_main, text="Mês", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Mes = Label(self.frame_main, text="Mês", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Mes.place(relx=0.07, rely=0.01)
         self.mes_entry = Entry(self.frame_main)
         self.mes_entry.place(relx=0.07, rely=0.04, relwidth=0.10)
 
-        self.lb_Gerencia = Label(self.frame_main, text="Gerência", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Gerencia = Label(self.frame_main, text="Gerência", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Gerencia.place(relx=0.18, rely=0.01)
         self.gerencia_entry = Entry(self.frame_main)
         self.gerencia_entry.place(relx=0.18, rely=0.04, relwidth=0.10)
 
-        self.lb_Unidade = Label(self.frame_main, text="Unidade/Setor", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Unidade = Label(self.frame_main, text="Unidade/Setor", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Unidade.place(relx=0.29, rely=0.01)
         self.unidade_entry = Entry(self.frame_main)
         self.unidade_entry.place(relx=0.29, rely=0.04, relwidth=0.30)
 
-        self.lb_Responsavel = Label(self.frame_main, text="Responsável", bg=bg_main, fg='snow', font=('', 9))
+        self.lb_Responsavel = Label(self.frame_main, text="Responsável", bg=bg_main, fg=color_text, font=('Arial Norrow', 9, 'bold'))
         self.lb_Responsavel.place(relx=0.60, rely=0.01)
         self.responsavel_entry = Entry(self.frame_main)
         self.responsavel_entry.place(relx=0.60, rely=0.04, relwidth=0.25)
@@ -164,6 +203,27 @@ class Home:
         self.scrollLancamento = Scrollbar(self.frame_2, orient='vertical')
         self.dados_lancamento.configure(xscrollcommand=self.scrollLancamento.set)
         self.scrollLancamento.place(relx=0.97, rely=0, relwidth=0.03, relheight=1)
+<<<<<<< HEAD
+=======
+ 
+    def cadUser(self):
+                FormCadUser(frame_CadForm=Tk())
+
+    def cadEmp(self):
+                Register(frame_CadUserteste=Tk())
+
+    def cadFil(self):
+                Register(frame_CadUserteste=Tk())
+
+    def cadReg(self):
+                Register(frame_CadUserteste=Tk())
+
+    def cadCdc(self):
+                Register(frame_CadUserteste=Tk())
+
+    def cadCC(self):
+                Register(frame_CadUserteste=Tk())                                                            
+>>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
 
         self.tab_controls.add(self.frame_main, text=" Orçado x Realizado ")
         self.tab_controls.add(self.frame_cadastros, text=" Cadastros ")
