@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from turtle import title
 from register import *
+from formCadUser import *
 from main import *
 from logs import *
 
@@ -17,7 +18,7 @@ class Home:
         self.app.title("Sistema OxR")
         self.app.configure(bg=bg_main)
 
-      
+        usuarioLog = inforUserLog()[2]
         
         barraDeMenus=Menu(app)
         
@@ -33,7 +34,7 @@ class Home:
         menuCadastros.add_command(label="Centro de Custos",command=self.cadCdc)
         menuCadastros.add_command(label="Plano de Contas",command=self.cadCC)
         barraDeMenus.add_cascade(label="Cadastros",menu=menuCadastros)
-
+        
         menuRelatorio=Menu(barraDeMenus,tearoff=0)
         #menuRelatorio.add_command(label="Análise",command=semComando)
         barraDeMenus.add_cascade(label="Relatório",menu=menuRelatorio)
@@ -43,6 +44,7 @@ class Home:
         barraDeMenus.add_cascade(label="Suporte",menu=menuSuporte)                
 
         app.config(menu=barraDeMenus)
+
 
        
     def analiseOxR(self):
@@ -175,10 +177,7 @@ class Home:
         self.scrollLancamento.place(relx=0.97, rely=0, relwidth=0.03, relheight=1)
  
     def cadUser(self):
-            #if self.cadUser:
-                #self.frame_main.destroy()
-            
-                Register(frame_CadUserteste=Tk())
+                FormCadUser(frame_CadForm=Tk())
 
     def cadEmp(self):
                 Register(frame_CadUserteste=Tk())
