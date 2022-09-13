@@ -4,7 +4,7 @@ from tkinter import ttk
 from tkinter.tix import ButtonBox
 
 
-bg_register = '#0d151a'
+bg_register = '#D0E6F1'
 
 class Register:
     def __init__(self, frame_CadUserteste):
