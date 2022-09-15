@@ -21,7 +21,7 @@ class Application:
     
         #widgets
 
-        my_label = Label(frame_login,image=my_img, bg="#333")
+        #my_label = Label(frame_login,image=my_img, bg="#333")
         lb_login = Label(frame_login, text="Sistema OxR", fg="#0373fc", bg="#333", font=('Segoe UI Light', 22)) 
         e_user = Entry(frame_login, font=("Arial", 13), width=25)
         lb_user = Label(frame_login, text="Usuário: ", fg="#fff", bg="#333", font=('Arial', 10, 'bold')) 
@@ -76,8 +76,7 @@ class Application:
             
 if __name__ == '__main__':
     app = Tk()
-    my_img = ImageTk.PhotoImage(Image.open("img\OxR-1.png"), size="50x50")
-
+    
     app.state("zoomed")
     application = Application(app)
   

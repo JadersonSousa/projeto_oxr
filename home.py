@@ -2,12 +2,9 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from register import *
-<<<<<<< HEAD
-=======
 from formCadUser import *
 from main import *
 from logs import *
->>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
 
 
 bg_main = '#D0E6F1'
@@ -21,8 +18,6 @@ class Home:
         self.app.state("zoomed")
         self.app.title("Sistema OxR")
         self.app.configure(bg=bg_main)
-<<<<<<< HEAD
-=======
 
         usuarioLog = inforUserLog()[2]
         
@@ -52,7 +47,6 @@ class Home:
         app.config(menu=barraDeMenus)
 
 
->>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
        
         #tab_Controllers = Controller(app)
         self.tab_controls = ttk.Notebook(app)
@@ -77,8 +71,10 @@ class Home:
         self.frame_suporte.pack(fill='both', expand=0)
         self.frame_sair.pack(fill='both', expand=0)
 
-
         Register(self.frame_cadastros)
+
+    def analiseOxR(self):
+
         # Campo Análise #
         self.frame_1 = Frame(self.frame_main)
         self.frame_1.place(relx=0.01, rely=0.10, relwidth=0.98, relheight=0.55)
@@ -203,8 +199,6 @@ class Home:
         self.scrollLancamento = Scrollbar(self.frame_2, orient='vertical')
         self.dados_lancamento.configure(xscrollcommand=self.scrollLancamento.set)
         self.scrollLancamento.place(relx=0.97, rely=0, relwidth=0.03, relheight=1)
-<<<<<<< HEAD
-=======
  
     def cadUser(self):
                 FormCadUser(frame_CadForm=Tk())
@@ -223,13 +217,12 @@ class Home:
 
     def cadCC(self):
                 Register(frame_CadUserteste=Tk())                                                            
->>>>>>> 1e2aec15b1abe3012e0ff5ce6b4c0ebbe7f75757
 
-        self.tab_controls.add(self.frame_main, text=" Orçado x Realizado ")
-        self.tab_controls.add(self.frame_cadastros, text=" Cadastros ")
-        self.tab_controls.add(self.frame_relatorio, text=" Relatórios ")
-        self.tab_controls.add(self.frame_suporte, text=" Suporte ")
-        self.tab_controls.add(self.frame_sair, text=" Sair ")
+                self.tab_controls.add(self.frame_main, text=" Orçado x Realizado ")
+                self.tab_controls.add(self.frame_cadastros, text=" Cadastros ")
+                self.tab_controls.add(self.frame_relatorio, text=" Relatórios ")
+                self.tab_controls.add(self.frame_suporte, text=" Suporte ")
+                self.tab_controls.add(self.frame_sair, text=" Sair ")
 
 if __name__ == '__main__':
     app = Tk()

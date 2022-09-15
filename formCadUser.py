@@ -10,11 +10,11 @@ class FormCadUser:
 
 
 
-        self.frame_form = LabelFrame(self.frame_CadUser, text="Informações Usuário")
+        self.frame_form = LabelFrame(self.frame_CadUser, text="Informações do Usuário")
         self.frame_form.grid(row=2, column=1)
 
         self.nome = Label(self.frame_form, text="Primeiro Nome: ")
         self.nome.grid(row=3, column=1)
 
-        self.sobreNome = Label(self.frame_form, text="Sobre Nome: ")
+        self.sobreNome = Label(self.frame_form, text="Sobrenome: ")
         self.sobreNome.grid(row=3, column=0)
