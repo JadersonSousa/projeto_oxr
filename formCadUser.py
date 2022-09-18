@@ -9,13 +9,13 @@ class FormCadUser:
         self.frame_CadUser.state("zoomed")
 
 
-<<<<<<< HEAD
+
         ###instaciando os objetos
         self.frame_form = LabelFrame(self.frame_CadUser, text="Informações Usuário")
-=======
+
 
         self.frame_form = LabelFrame(self.frame_CadUser, text="Informações do Usuário")
->>>>>>> bb5438498d1209f7b6d623b4fd25771b4f56579d
+
         self.frame_form.grid(row=2, column=1)
 
         self.nome = Label(self.frame_form, text="Primeiro Nome: ")
