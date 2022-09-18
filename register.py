@@ -95,7 +95,7 @@ def __init__(self):
     self.bt_CadFIl_Salvar.place(relx=0.915, rely=0.09, relwidth=0.08, relheight=0.04)
     self.bt_CadFIl_Excluir = Button(self.frame_sec_CadFil, text="Excluir", bd=2, bg='snow', fg='black')
     self.bt_CadFIl_Excluir.place(relx=0.915, rely=0.13, relwidth=0.08, relheight=0.04)
-        # Botões Regional #
+    # Botões Regional #
     self.bt_CadReg_Novo = Button(self.frame_sec_CadReg, text="Novo", bd=2, bg='snow', fg='black')
     self.bt_CadReg_Novo.place(relx=0.915, rely=0.01, relwidth=0.08, relheight=0.04)               
     self.bt_CadReg_Editar = Button(self.frame_sec_CadReg, text="Editar", bd=2, bg='snow', fg='black')
